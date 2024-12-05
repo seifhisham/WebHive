@@ -32,11 +32,11 @@ export function UserNav({ email, name, userImage }: iAppProps){
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link href="/sell">Sell your Product</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            {/* <Link href="/settings">Settings</Link> */}
+            <Link href="/settings">Settings</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             {/* <Link href="my-products">My Products</Link> */}
