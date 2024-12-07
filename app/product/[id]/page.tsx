@@ -1,5 +1,5 @@
 // import { BuyProduct } from "@/app/actions";
-import dynamic from 'next/dynamic';
+import { ProductDescription } from "@/app/components/ProductDescription";
 import { BuyButton } from "@/app/components/SubmitButtons";
 import prisma from "@/app/lib/db";
 import { unstable_noStore as noStore } from "next/cache";
@@ -13,17 +13,6 @@ import {
 } from "@/components/ui/carousel";
 import { JSONContent } from "@tiptap/react";
 import Image from "next/image";
-
-// Dynamic import with SSR disabled
-const ProductDescription = dynamic(
-  () => import('@/app/components/ProductDescription').then(mod => mod.ProductDescription),
-  { 
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-[400px] animate-pulse bg-gray-100 rounded-lg" />
-    )
-  }
-);
 
 async function getData(id: string) {
   const data = await prisma.product.findUnique({

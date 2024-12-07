@@ -13,11 +13,6 @@ export function ProductDescription({ content }: { content: JSONContent }) {
         class: "prose prose-sm sm:prose-base",
       },
     },
-    onCreate: ({ editor }) => {
-      // Force an update after editor is created
-      editor.commands.focus('end');
-    },
-    immediatelyRender: false // Add this to fix SSR issue
   });
 
   if (!editor) {
@@ -25,8 +20,8 @@ export function ProductDescription({ content }: { content: JSONContent }) {
   }
 
   return (
-    <div className="prose prose-sm sm:prose-base max-w-none">
+    <>
       <EditorContent editor={editor} />
-    </div>
+    </>
   );
 }
