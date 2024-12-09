@@ -4,16 +4,6 @@ import { type CategoryTypes } from "@prisma/client";
 import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 
-type Props = {
-  params: {
-    category: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-} & {
-  params: any;
-  searchParams: any;
-}
-
 async function getData(category: string) {
   let input;
 
@@ -55,11 +45,19 @@ async function getData(category: string) {
   return data;
 }
 
-export default async function CategoryPage({
+type Props = {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+} & {
+  params: any;
+  searchParams: any;
+}
+
+export default async function ProductPage({
   params,
-}: {
-  params: { category: string };
-}) {
+}: Props) {
   noStore();
   const data = await getData(params.category);
   return (
