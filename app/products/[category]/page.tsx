@@ -45,13 +45,19 @@ async function getData(category: string) {
   return data;
 }
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { category: string };
-} & {
+type Props = {
+  params: {
+    id: string;
+  };
   searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+} & {
+  params: any;
+  searchParams: any;
+}
+
+export default async function ProductPage({
+  params,
+}: Props) {
   noStore();
   const data = await getData(params.category);
   return (
