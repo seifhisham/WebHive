@@ -39,11 +39,16 @@ async function getData(id: string) {
   return data;
 }
 
+// Add this type definition
+type Props = {
+  params: {
+    id: string
+  }
+}
+
 export default async function ProductPage({
   params,
-}: {
-  params: { id: string };
-}) {
+}: Props) {
   noStore();
   const data = await getData(params.id);
   return (
