@@ -39,11 +39,15 @@ async function getData(id: string) {
   return data;
 }
 
-// Add this type definition
+// Update the Props type definition
 type Props = {
   params: {
-    id: string
-  }
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+} & {
+  params: any;
+  searchParams: any;
 }
 
 export default async function ProductPage({
