@@ -85,15 +85,7 @@ export async function SellProduct(prevState: any, formData: FormData) {
     },
   });
 
-  //return redirect(`/product/${data.id}`);
-
-  
-
-  const state: State = {
-    status: "success",
-    message: "Your Settings have been updated",
-  };
-  return state;
+  return redirect(`/product/${data.id}`);
 }
 
 
